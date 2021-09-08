@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace TextAnalyzer
 {
@@ -62,8 +61,8 @@ namespace TextAnalyzer
                 {
                     Console.Beep();
                     //try this text to see results in more "friendly" format
-                    testText = "one kek kok kok kak tuk tuk tuk fuk fuk fuk fuk cup cup cup cup cup gag gag gag gag gag gag sev sev sev sev sev sev sev egh egh egh egh egh egh egh egh nin nin nin nin nin nin nin nin nin ten ten ten ten ten ten ten ten ten ten elv elv elv elv elv elv elv elv elv elv elv";
-                    //testText = "Необходимо написать консольное приложение на C#, выполняющее частотный анализ текста. Входные параметры: путь к текстовому файлу. Выходные результаты: вывести на экран через запятую 10 самых часто встречающихся в тексте триплетов(3 идущих подряд буквы слова), и на следующей строке время работы программы в миллисекундах. Требования: программа должна обрабатывать текст в многопоточном режиме. Оцениваться будет правильность решения, качество кода и быстродействие программы.";
+                    //testText = "one! kek kok, kok kak tuk; tuk tuk fuk  fuk! fuk fuk cup? cup cup cup cup gag gag gag gag gag gag sev sev sev sev sev sev sev egh egh egh egh egh egh egh egh nin nin nin nin nin, nin.. nin nin nin ten ten ten ten ten ten ten ten ten ten elv elv elv elv elv elv elv elv elv elv! elv  ";
+                    testText = "Необходимо написать консольное приложение на C#, выполняющее частотный анализ текста. Входные параметры: путь к текстовому файлу. Выходные результаты: вывести на экран через запятую 10 самых часто встречающихся в тексте триплетов(3 идущих подряд буквы слова), и на следующей строке время работы программы в миллисекундах. Требования: программа должна обрабатывать текст в многопоточном режиме. Оцениваться будет правильность решения, качество кода и быстродействие программы.";
                     timer.Start();
                     text.Add(testText);
                     bull = true;
@@ -95,13 +94,12 @@ namespace TextAnalyzer
         }
 
         //remove punctuation, find words, write them in Words list
-        static  List<string> WordCreator(List<string> text)
+        static List<string> WordCreator(List<string> text)
         {
             List<string> words = new List<string>(); //store words from text
 
             string empty = "";
             string newLine;
-
             foreach (var line in text)
             {
                 //remove punctuation
